@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>THE BINGE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link href="styles/custom.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+<link rel="stylesheet" href="themes/my-project-theme.min.css"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+<script type="text/javascript">
+   $(function()){
+      var Votes=[];
+        function addVote(){
+          var vote = new Object();
+            vote.firstname = $("firstname").val();
+            vote.gender = $("gender").val();
+            vote.age = $("age").val();
+            vote.favegenre = $("favegenre").val();
+            vote.faveshow= $("faveshow").val();
+
+            Votes.push(vote);
+        }//end addVote
+
+    function updateVotes(){
+      //we need to clear the UL before adding to it
+      $("vote_list").html("");
+
+      for (var i = 0; i < Votes.length; i++){
+        $("vote_list").append(
+            "<li>" + Votes[i].firstname + " " + Votes[i].gender + " "
+              + Votes[i].age + " " + Votes[i].favegenre + " "
+              + Votes[i].faveshow + "</li>"
+        );//end append
+      }//end for
+      $(#"vote_list")listview("refresh");
+
+    }//end update votes
+
+    $("#btn_submit").on("click",addVote);
+    $("LandingPage").on("pagebeforeshow",updateVotes);
+
+  });
+</script>
+
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js"></script>
+
+</head>
+<body>
+
+  <div id="Landingpage" data-role="page" data-theme="a" data-add-back-btn="true">
+    <div data-role="header" data-theme="a">
+      <div class="logo"><img src="Image/Logo.jpg" width="500" height="250" alt=""/></div>
+    </div>
+
+  <div data-role="panel" id="Links">
+    <h2>Where To Watch</h2>
+    <ul data-role="listview" data-theme="c">
+      <li class="menu"><a href="#">Netflix</a></li>
+      <li class="menu"><a href="#">Hulu Plus</a></li>
+      <li class="menu"><a href="#">HBO Go</a></li>
+      <li class="menu"><a href="#">Amazon Prime</a></li>
+      <li class="menu"><a href="#">Crackle</a></li>
+      <li class="menu"><a href="#">The CW</a></li>
+      <li class="menu"><a href="#">Blockbuster OnDemand</a></li>
+    </ul>
+    <p> You can close this panel by hitting esc</p>
+  </div>
+
+    <div data-role="header">
+      <h1> THE BINGE </h1>
+      <a href="#Links" class="ui-btn ui-btn-inline">Where To Watch</a>
+      <a href="#Vote" class="ui-btn-right" data-role="button">Vote</a>
+    </div>
+
+    <h3> WELCOME TO THE BINGE!!!</h3>
+    <p> In the high-paced world we live in, who has time to schedule TV
+        viewing?  The trend shows that 70% of Americans binge watch their
+        favorite shows.  Part of this trend is based on our scheduling
+        practices, but it can also be attributed to show popularity. </p>
+
+    <p> In the past, we may have heard about a show that gained popularity
+        during the third season, for example.  Before the popularity of
+        websites providing viewing of past episodes, viewers were at the
+        mercy of paying for seasons on video or hoping for the availability
+        at the local video stores or libraries.  In this high technology
+        age, accessibility to a large variety and TV shows and entertainment
+        genres has made this an inconvenience no longer.  </p>
+
+    <p> Please visit the Highlighted Genres to see a list of shows under
+        our favorite categories and options where the series can be viewed.
+        </p>
+
+    <h4> HAPPY WATCHING!!!!!! </h4>
+
+    <div data-role="content">
+      <ul data-role="listview" data-theme="c">
+        <li><a href="#grid">Highlighted Genres</a></li>
+        <li><a href="#Top10">The Binge Top 10</a></li>
+      </ul>
+    </div>
+
+    <div data-role="footer" data-theme="a">
+      <h4>The Binge &copy; 2017</h4>
+    </div>
+  </div>
+
+  <div data-role="page" id="grid" data-theme="a" data-add-back-btn="true">
+    <div data-role="header" data-theme="a" data-add-back-btn="true">
+      <h1>Highlighted Genres</h1>
+    </div>
+    <div data-role="content">
+    <div class="ui-grid-b">
+      <div class="ui-block-a"><div class="ui-bar ui-bar-a"
+        style="height:60px">Fantasy</div></div>
+      <div class="ui-block-b"><div class="ui-bar ui-bar-a"
+        style="height:60px">Science Fiction</div></div>
+      <div class="ui-block-c"><div class="ui-bar ui-bar-a"
+        style="height:60px">Action</div></div>
+      <div class="ui-block-a"><div class="ui-bar ui-bar-a"
+        style="height:60px">Drama</div></div>
+      <div class="ui-block-b"><div class="ui-bar ui-bar-a"
+        style="height:60px">Historical Drama</div></div>
+      <div class="ui-block-c"><div class="ui-bar ui-bar-a"
+        style="height:60px">Documentary</div></div>
+      <div class="ui-block-a"><div class="ui-bar ui-bar-a"
+        style="height:60px">Comedy</div></div>
+      <div class="ui-block-b"><div class="ui-bar ui-bar-a"
+        style="height:60px">Animated</div></div>
+      <div class="ui-block-c"><div class="ui-bar ui-bar-a"
+        style="height:60px">Horror</div></div>
+    </div><!-- /grid-c -->
+  </div>
+
+    <div data-role="footer" data-theme="a">
+      <h4>The Binge &copy; 2017</h4>
+    </div>
+  </div>
+
+  <div data-role="page" id="Top10" data-theme="a" data-add-back-btn="true">
+    <div data-role="header" data-theme="a" data-add-back-btn="true">
+      <h1>The Binge Top 10</h1>
+    </div>
+    <div data-role="content">
+      <ol data-role="listview" data-theme="c" data-filter="true">
+        <li><a href="#No1">Breaking Bad</a></li>
+        <li><a href="#No2">Game of Thrones</a></li>
+        <li><a href="#No3">Dexter</a></li>
+        <li><a href="#No4">The Walking Dead</a></li>
+        <li><a href="#No5">House of Cards</a></li>
+        <li><a href="#No6">Sherlock</a></li>
+        <li><a href="#No7">Orange Is The New Black</a></li>
+        <li><a href="#No8">Lost</a></li>
+        <li><a href="#No9">House</a></li>
+        <li><a href="#No10">Firefly</a></li>
+      </ol>
+    </div>
+
+    <div data-role="footer" data-theme="a">
+      <h4>The Binge &copy; 2017</h4>
+    </div>
+  </div>
+
+  <div data-role="page" id="Vote" data-theme="a" data-add-back-btn="true">
+    <div data-role="header" data-theme="a" data-add-back-btn="true">
+      <h1> Vote For Your Favorites</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+      <h3> VOTE FOR YOUR FAVORITE GENRE AND SHOW!</h3>
+      <P>   </P>
+      <p> **Used for Top 10 purposes only.**</p>
+      <p> **Private information will not be released to a third-party.**</p>
+        <ul id="vote_list" data-role="listview" data-filter=true>
+    </div>
+
+    <form action="form.php" method="post">
+  		  <label for="firstname">First name:</label>
+  			<input type="text" name="firstname" id="firstname" data-clear-btn="true">
+  			<label for="gender">Gender:</label>
+  			<input type="text" name="gender" id="gender" data-clear-btn="true">
+  			<label for="age">Age:</label>
+  			<input type="text" name="age" id="age" data-clear-btn="true">
+        <label for="favegenre">Favorite genre:</label>
+  			<input type="text" name="favegenre" id="favegenre" data-clear-btn="true">
+        <label for="faveshow">Favorite show:</label>
+  			<input type="text" name="faveshow" id="faveshow" data-clear-btn="true">
+  			<input type="reset" value="Reset Button">
+  			<input type="submit" value= "Submit Button">
+  	</form>
+
+    <div data-role="footer" data-theme="a">
+      <h4>The Binge &copy; 2017</h4>
+    </div>
+  </div>
+
+    </div>
+    </body>
+    </html>
